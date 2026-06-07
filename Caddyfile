@@ -1,10 +1,13 @@
-:80 {
-    handle {
-        reverse_proxy nodejs-server:3000 {
-            header_up Host {host}
-            header_up X-Real-IP {remote}
-            header_up X-Forwarded-For {remote}
-            header_up X-Forwarded-Proto {scheme}
-        }
+http://210.79.128.114 {
+    redir https://{host}{uri} permanent
+}
+
+https://210.79.128.114 {
+    reverse_proxy nodejs-server:3000 {
+        header_up Host {host}
+        header_up X-Real-IP {remote}
+        header_up X-Forwarded-For {remote}
+        header_up X-Forwarded-Proto {scheme}
     }
+    tls internal
 }
