@@ -3,7 +3,7 @@ const app = express()
 const port = 3000
 
 app.get('/', (req, res) => {
-  res.json({ message: 'Hello World!', status:"success" })
+  res.json({ message: 'Hello World!', status:"success", github:"github actions deployed" })
 })
 
 app.listen(port, () => {
