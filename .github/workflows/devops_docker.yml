@@ -37,10 +37,30 @@ jobs:
               #kill running container
               #again pull fresh image
               #run container
-              sudo docker rm -f chaicode-node || true
+              #sudo docker rm -f chaicode-node || true
+              # sudo docker pull carrebeanpirate/chaicode-node
+              #sudo docker run -d -p 3000:3000 --name chaicode-node carrebeanpirate/chaicode-node
+
+              # clean up old images
+              #sudo docker image prune -f
+
+              # for caddy reverseProxy
+
+              #CD /home/ubuntu/server/devops-test
+              cd /home/ubuntu/server/devops-test
+
+              #git pull
+              git pull
+
+
+              #make sure to pull fresh copy of carrebeanpirate/chaicode-node
               sudo docker pull carrebeanpirate/chaicode-node
-              sudo docker run -d -p 3000:3000 --name chaicode-node carrebeanpirate/chaicode-node
+
+              # run docker compose
+              sudo docker compose up -d
 
               # clean up old images
               sudo docker image prune -f
+
+
           
