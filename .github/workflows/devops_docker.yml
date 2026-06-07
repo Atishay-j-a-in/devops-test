@@ -37,10 +37,10 @@ jobs:
               #kill running container
               #again pull fresh image
               #run container
-              docker rm -f chaicode-node || true
-              docker pull carrebeanpirate/chaicode-node
-              docker run -d -p 3000:3000 --name chaicode-node carrebeanpirate/chaicode-node
+              sudo docker rm -f chaicode-node || true
+              sudo docker pull carrebeanpirate/chaicode-node
+              sudo docker run -d -p 3000:3000 --name chaicode-node carrebeanpirate/chaicode-node
 
               # clean up old images
-              docker image prune -f
+              sudo docker image prune -f
           
